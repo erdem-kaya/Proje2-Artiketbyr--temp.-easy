@@ -18,7 +18,9 @@ header {
   justify-content: space-between;
 }
 
-.navbar .bar{
+.bar1,
+.bar2,
+.bar3 {
   width: 36px;
   height: 4px;
   background-color: black;
@@ -97,10 +99,16 @@ header {
   margin:0;
 }
 
+.mobileNav a:hover{
+  color: orange;
+  transition: 0.7s;
+}
+
 
 @media screen and (max-width: 768px) {
   .navbar .hamburger{
     display: block;
+    z-index: 1;
   }
 
   .navbar .links {
@@ -126,3 +134,67 @@ header {
     font-size: 35px;
   }
 }
+
+.animationBar2{
+  animation: 1s fadeBar2;
+  animation-fill-mode: forwards;
+}
+
+.animationBar1 {
+  animation: 1s fadeBar1;
+  animation-fill-mode: forwards;
+}
+
+.animationBar3 {
+  animation: 1s fadeBar3;
+  animation-fill-mode: forwards;
+}
+
+.mobileNav {
+  position: fixed;
+  width: 80px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: -120px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 16px;
+  transition: transform 1s ;
+  a{
+    color: black;
+    text-decoration: none;
+    margin: 16px 0px;
+  }
+}
+
+.openSidebar {
+  transform: translate(-120px);
+}
+
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+  }to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes fadeBar1 {
+  from{
+    transform: rotate(0);
+  } to {
+    transform: rotate(45deg) translate(4px, 6px);
+  }
+}
+
+@keyframes fadeBar3 {
+  from{
+    transform: rotate(0);
+  } to {
+    transform: rotate(-45deg) translate(4px, -6px);
+  }
+}
+
